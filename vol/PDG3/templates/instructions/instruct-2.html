@@ -1,0 +1,55 @@
+<div id="container-instructions">
+
+    <h1>Instructions</h1>
+
+    <hr>
+
+    <div class="instructions well">
+
+        <p>
+            Once the trays have been emptied, the boxes will be shaken in order to randomize the marbles and you will see this image:
+        </p>
+        <img src="{{ server_location }}/static/images/Pics/boxes.jpg" width="750" 
+             />
+
+        <p>
+            When you see this image you can choose a box to take a marble from.
+        </p>
+        <p>
+            If you think the <font color="BLUE">BLUE BOX</font> on the left is better for getting a white marble then press the '<font color="BLUE">Z</font>' key.
+        </p>
+        <p>
+            If you think the <font color="GREEN">GREEN BOX</font> on the right is better for getting a white marble then press the '<font color="GREEN">M</font>' key.
+        </p>
+        
+        <p>
+            Once you have made your choice a marble will be randomly drawn from the box you chose.  Remember, this marble is chosen randomly so it could end up being red or white and your job is pick the box that you think is best for getting a <strong>WHITE</strong> marble.
+        </p>
+
+
+        <script type="text/javascript">
+        //console.log(psiTurk.getInstructionIndicator())
+        </script>
+
+    </div>
+
+    <hr>
+
+    <div class="instructionsnav">
+        <div class="row">
+            <div class="col-xs-2">
+                <button type="button" id="next" value="next" class="btn btn-primary btn-lg previous">
+                <span class="glyphicon glyphicon-arrow-left"></span> Previous
+                </button>
+            </div>
+            <div class="col-xs-8">
+            </div>
+            <div class="col-xs-2">
+                <button type="button" id="next" value="next" class="btn btn-primary btn-lg continue">
+                Next <span class="glyphicon glyphicon-arrow-right"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>

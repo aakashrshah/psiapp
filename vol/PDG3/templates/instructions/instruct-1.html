@@ -1,0 +1,50 @@
+<div id="container-instructions">
+
+	<h1>Instructions</h1>
+
+	<hr>
+
+	<div class="instructions well">
+        <p>
+            In this game, you will try to collect <strong>WHITE</strong> marbles.
+        </p>
+        <p>
+            On the screen you will see two trays like the ones below but there
+            will be both red and white marbles in those trays.
+        </p>
+        
+	    <img src="{{ server_location }}/static/images/Pics/boxesAndTrays.jpg" width="750" 
+             />
+	    
+        <p>
+        	The marbles in each of the trays will be poured into the boxes.  
+        </p>
+        <p>
+            The contents of the <font color="BLUE">BLUE TRAY</font> tray will go in the <font color="BLUE">BLUE BOX</font> and the contents of the <font color="GREEN">GREEN TRAY</font> tray will go in the <font color="GREEN">GREEN BOX</font>.
+        </p>
+
+	    <script type="text/javascript">
+	    //console.log(psiTurk.getInstructionIndicator())
+	    </script>
+
+	</div>
+
+	<hr>
+
+
+    <div class="instructionsnav">
+        <div class="row">
+            <div class="col-xs-2">
+            	<!-- no previous button on first screen -->
+            </div>
+            <div class="col-xs-8">
+            </div>
+            <div class="col-xs-2">
+                <button type="button" id="next" value="next" class="btn btn-primary btn-lg continue">
+                Next <span class="glyphicon glyphicon-arrow-right"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>
