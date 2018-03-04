@@ -1,0 +1,24 @@
+version: '3'
+services:
+  db:
+    image: mysql:latest
+    volumes:
+     - ./vol/data/db:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: examplepassword
+      MYSQL_DATABASE: psinav
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+
+  psiturk-example:
+    build: .
+    links:
+     - db
+    ports:
+     - 22362:22362
+    volumes:
+     - ./vol/psiturk-example:/psiturk
+    tty: true
+    stdin_open: true
+    restart: always

@@ -13,8 +13,8 @@ browser_exclude_rule = MSIE, mobile, tablet
 allow_repeats = false
 
 [Database Parameters]
-database_url = sqlite:///participants.db
-table_name = turkdemo
+database_url = mysql://user:password@db:3306/psinav
+table_name = psinav
 
 [Server Parameters]
 host = 0.0.0.0
@@ -23,6 +23,8 @@ cutoff_time = 30
 logfile = server.log
 loglevel = 2
 debug = true
+login_username = examplename
+login_pw = examplepassword
 threads = auto
 
 

@@ -7,9 +7,9 @@
 // Initalize psiturk object
 var psiTurk = new PsiTurk(uniqueId, adServerLoc, mode);
 
-var mycondition = condition;  // these two variables are passed by the psiturk server process
-var mycounterbalance = counterbalance;  // they tell you which condition you have been assigned to
-// they are not used in the stroop code but may be useful to you
+// var mycondition = condition;  // these two variables are passed by the psiturk server process
+// var mycounterbalance = counterbalance;  // they tell you which condition you have been assigned to
+// // they are not used in the stroop code but may be useful to you
 
 // All pages to be loaded
 var pages = [

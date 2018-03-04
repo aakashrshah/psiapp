@@ -1,6 +1,6 @@
 [AWS Access]
-aws_access_key_id = AKIAIBNJ3WUQTNMNQ2OA
-aws_secret_access_key = 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
+aws_access_key_id = AKIAII27CKMLSQL47Q2Q
+aws_secret_access_key = 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
 aws_region = us-east-1
 
 [psiTurk Access]

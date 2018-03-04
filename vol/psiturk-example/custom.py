@@ -40,6 +40,7 @@ def my_custom_view():
 	except TemplateNotFound:
 		abort(404)
 
+
 #----------------------------------------------
 # example using HTTP authentication
 #----------------------------------------------
@@ -50,6 +51,34 @@ def my_password_protected_route():
 		return render_template('custom.html')
 	except TemplateNotFound:
 		abort(404)
+
+
+#----------------------------------------------
+# example using HTTP authentication
+#----------------------------------------------
+@custom_code.route('/admin')
+@myauth.requires_auth
+def my_admin_login():
+    try:
+        return render_template('login.html')
+    except TemplateNotFound:
+        abort(404)
+
+@custom_code.route('/index')
+@myauth.requires_auth
+def my_admin_console():
+    try:
+        return render_template('index.html')
+    except TemplateNotFound:
+        abort(404)
+
+@custom_code.route('/new')
+@myauth.requires_auth
+def new_experiment():
+    try:
+        return render_template('new.html')
+    except TemplateNotFound:
+        abort(404)
 
 #----------------------------------------------
 # example accessing data

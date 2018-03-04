@@ -1,0 +1,2170 @@
+[2018-03-04 03:13:18 +0000] [37] [CRITICAL] WORKER TIMEOUT (pid:41)
+[2018-03-04 03:13:18 +0000] [37] [CRITICAL] WORKER TIMEOUT (pid:42)
+[2018-03-04 03:13:18 +0000] [37] [CRITICAL] WORKER TIMEOUT (pid:43)
+[2018-03-04 03:13:18 +0000] [37] [CRITICAL] WORKER TIMEOUT (pid:47)
+[2018-03-04 03:13:18 +0000] [37] [CRITICAL] WORKER TIMEOUT (pid:48)
+[2018-03-04 03:13:18 +0000] [37] [CRITICAL] WORKER TIMEOUT (pid:49)
+[2018-03-04 03:13:18 +0000] [37] [CRITICAL] WORKER TIMEOUT (pid:52)
+[2018-03-04 03:13:18 +0000] [37] [CRITICAL] WORKER TIMEOUT (pid:54)
+[2018-03-04 03:13:18 +0000] [37] [CRITICAL] WORKER TIMEOUT (pid:56)
+[2018-03-04 03:20:25,113] ERROR in app: Exception on /my_custome_view [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 724, in regularpage
+    return render_template(pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: my_custome_view
+[2018-03-04 03:44:21 +0000] [313] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 951, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 154, in register
+    deferred(state)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 173, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 76, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1051, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.my_password_protected_route
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 951, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 154, in register
+    deferred(state)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 173, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 76, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1051, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.my_password_protected_route
+[2018-03-04 03:44:22 +0000] [314] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 951, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 154, in register
+    deferred(state)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 173, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 76, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1051, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.my_password_protected_route
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 951, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 154, in register
+    deferred(state)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 173, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 76, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1051, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.my_password_protected_route
+[2018-03-04 03:44:22 +0000] [316] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 951, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 154, in register
+    deferred(state)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 173, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 76, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1051, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.my_password_protected_route
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 951, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 154, in register
+    deferred(state)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 173, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 76, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1051, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.my_password_protected_route
+[2018-03-04 03:44:22 +0000] [318] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 951, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 154, in register
+    deferred(state)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 173, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 76, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1051, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.my_password_protected_route
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 951, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 154, in register
+    deferred(state)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 173, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 76, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1051, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.my_password_protected_route
+[2018-03-04 03:44:22 +0000] [320] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 951, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 154, in register
+    deferred(state)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 173, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 76, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1051, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.my_password_protected_route
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 951, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 154, in register
+    deferred(state)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 173, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 76, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1051, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.my_password_protected_route
+[2018-03-04 03:44:22 +0000] [321] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 951, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 154, in register
+    deferred(state)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 173, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 76, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1051, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.my_password_protected_route
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 951, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 154, in register
+    deferred(state)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 173, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 76, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1051, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.my_password_protected_route
+[2018-03-04 03:46:21 +0000] [340] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 951, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 154, in register
+    deferred(state)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 173, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 76, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1051, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.my_password_protected_route
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 951, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 154, in register
+    deferred(state)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 173, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 76, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1051, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.my_password_protected_route
+[2018-03-04 03:46:21 +0000] [341] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 951, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 154, in register
+    deferred(state)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 173, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 76, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1051, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.my_password_protected_route
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 951, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 154, in register
+    deferred(state)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 173, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 76, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1051, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.my_password_protected_route
+[2018-03-04 03:46:21 +0000] [344] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 951, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 154, in register
+    deferred(state)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 173, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 76, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1051, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.my_password_protected_route
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 951, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 154, in register
+    deferred(state)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 173, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 76, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1051, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.my_password_protected_route
+[2018-03-04 05:41:05,267] ERROR in app: Exception on /my_custome_view [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 724, in regularpage
+    return render_template(pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: my_custome_view
+[2018-03-04 05:41:08,564] ERROR in app: Exception on /my_custome_view [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 724, in regularpage
+    return render_template(pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: my_custome_view
+[2018-03-04 05:41:19,073] ERROR in app: Exception on /ADMIN [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 724, in regularpage
+    return render_template(pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: ADMIN
+[2018-03-04 07:01:41 +0000] [435] [CRITICAL] WORKER TIMEOUT (pid:448)
+[2018-03-04 07:01:42 +0000] [435] [CRITICAL] WORKER TIMEOUT (pid:450)
+[2018-03-04 07:01:42 +0000] [435] [CRITICAL] WORKER TIMEOUT (pid:452)
+[2018-03-04 07:01:42 +0000] [435] [CRITICAL] WORKER TIMEOUT (pid:454)
+[2018-03-04 07:01:42 +0000] [435] [CRITICAL] WORKER TIMEOUT (pid:439)
+[2018-03-04 07:01:42 +0000] [435] [CRITICAL] WORKER TIMEOUT (pid:440)
+[2018-03-04 07:01:42 +0000] [435] [CRITICAL] WORKER TIMEOUT (pid:441)
+[2018-03-04 07:01:42 +0000] [435] [CRITICAL] WORKER TIMEOUT (pid:443)
+[2018-03-04 07:01:42 +0000] [435] [CRITICAL] WORKER TIMEOUT (pid:446)
+[2018-03-04 07:44:13,419] ERROR in app: Exception on /css/sb-admin.css [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: css/sb-admin.css
+[2018-03-04 07:45:24,081] ERROR in app: Exception on /css/sb-admin.css [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: css/sb-admin.css
+[2018-03-04 07:45:24,469] ERROR in app: Exception on /css/sb-admin.css [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: css/sb-admin.css
+[2018-03-04 07:45:24,754] ERROR in app: Exception on /css/sb-admin.css [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: css/sb-admin.css
+[2018-03-04 07:45:24,953] ERROR in app: Exception on /css/sb-admin.css [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: css/sb-admin.css
+[2018-03-04 07:45:25,125] ERROR in app: Exception on /css/sb-admin.css [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: css/sb-admin.css
+[2018-03-04 07:45:39,160] ERROR in app: Exception on /css/sb-admin.css [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: css/sb-admin.css
+[2018-03-04 07:45:40,090] ERROR in app: Exception on /css/sb-admin.css [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: css/sb-admin.css
+[2018-03-04 07:45:40,442] ERROR in app: Exception on /css/sb-admin.css [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: css/sb-admin.css
+[2018-03-04 07:45:40,867] ERROR in app: Exception on /css/sb-admin.css [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: css/sb-admin.css
+[2018-03-04 07:45:41,041] ERROR in app: Exception on /css/sb-admin.css [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: css/sb-admin.css
+[2018-03-04 07:47:58,309] ERROR in app: Exception on /css/sb-admin.css [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: css/sb-admin.css
+[2018-03-04 07:47:59,249] ERROR in app: Exception on /css/sb-admin.css [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: css/sb-admin.css
+[2018-03-04 07:48:01,249] ERROR in app: Exception on /css/sb-admin.css [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: css/sb-admin.css
+[2018-03-04 07:48:01,503] ERROR in app: Exception on /css/sb-admin.css [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: css/sb-admin.css
+[2018-03-04 07:48:01,668] ERROR in app: Exception on /css/sb-admin.css [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: css/sb-admin.css
+[2018-03-04 07:48:02,229] ERROR in app: Exception on /css/sb-admin.css [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: css/sb-admin.css
+[2018-03-04 07:48:02,402] ERROR in app: Exception on /css/sb-admin.css [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: css/sb-admin.css
+[2018-03-04 07:48:02,597] ERROR in app: Exception on /css/sb-admin.css [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: css/sb-admin.css
+[2018-03-04 07:48:02,807] ERROR in app: Exception on /css/sb-admin.css [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: css/sb-admin.css
+[2018-03-04 07:48:04,147] ERROR in app: Exception on /css/sb-admin.css [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: css/sb-admin.css
+[2018-03-04 07:49:31,518] ERROR in app: Exception on /vendor [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 724, in regularpage
+    return render_template(pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: vendor
+[2018-03-04 08:03:01 +0000] [115] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 951, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 154, in register
+    deferred(state)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 173, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 76, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1051, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.my_admin_console
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 951, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 154, in register
+    deferred(state)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 173, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 76, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1051, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.my_admin_console
+[2018-03-04 08:03:01 +0000] [117] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 951, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 154, in register
+    deferred(state)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 173, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 76, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1051, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.my_admin_console
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 951, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 154, in register
+    deferred(state)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 173, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 76, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1051, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.my_admin_console
+[2018-03-04 08:03:01 +0000] [118] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 951, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 154, in register
+    deferred(state)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 173, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 76, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1051, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.my_admin_console
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 951, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 154, in register
+    deferred(state)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 173, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 76, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1051, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.my_admin_console
+[2018-03-04 08:03:01 +0000] [122] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 951, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 154, in register
+    deferred(state)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 173, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 76, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1051, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.my_admin_console
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 951, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 154, in register
+    deferred(state)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 173, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 76, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1051, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.my_admin_console
+[2018-03-04 08:03:01 +0000] [121] [ERROR] Exception in worker process:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 951, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 154, in register
+    deferred(state)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 173, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 76, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1051, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.my_admin_console
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/arbiter.py", line 515, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 122, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/workers/base.py", line 130, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment_server.py", line 47, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/usr/local/lib/python2.7/dist-packages/gunicorn/util.py", line 357, in import_app
+    __import__(module)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 87, in <module>
+    app.register_blueprint(custom_code)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 951, in register_blueprint
+    blueprint.register(self, options, first_registration)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 154, in register
+    deferred(state)
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 173, in <lambda>
+    s.add_url_rule(rule, endpoint, view_func, **options))
+  File "/usr/local/lib/python2.7/dist-packages/flask/blueprints.py", line 76, in add_url_rule
+    view_func, defaults=defaults, **options)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 64, in wrapper_func
+    return f(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1051, in add_url_rule
+    'existing endpoint function: %s' % endpoint)
+AssertionError: View function mapping is overwriting an existing endpoint function: custom_code.my_admin_console
+[2018-03-04 08:05:44,289] ERROR in app: Exception on /css/sb-admin.css [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: css/sb-admin.css
+[2018-03-04 08:05:44,295] ERROR in app: Exception on /js/sb-admin.min.js [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: js/sb-admin.min.js
+[2018-03-04 08:05:44,299] ERROR in app: Exception on /js/sb-admin-charts.min.js [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: js/sb-admin-charts.min.js
+[2018-03-04 08:05:44,300] ERROR in app: Exception on /js/sb-admin-datatables.min.js [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: js/sb-admin-datatables.min.js
+[2018-03-04 08:05:44,396] ERROR in app: Exception on /js/sb-admin.min.js [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: js/sb-admin.min.js
+[2018-03-04 08:05:44,403] ERROR in app: Exception on /js/sb-admin-datatables.min.js [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: js/sb-admin-datatables.min.js
+[2018-03-04 08:05:44,409] ERROR in app: Exception on /js/sb-admin-charts.min.js [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: js/sb-admin-charts.min.js
+[2018-03-04 08:07:25,286] ERROR in app: Exception on /js/sb-admin.min.js [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: js/sb-admin.min.js
+[2018-03-04 08:07:25,282] ERROR in app: Exception on /css/sb-admin.css [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: css/sb-admin.css
+[2018-03-04 08:07:25,293] ERROR in app: Exception on /js/sb-admin-datatables.min.js [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: js/sb-admin-datatables.min.js
+[2018-03-04 08:07:25,352] ERROR in app: Exception on /js/sb-admin.min.js [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: js/sb-admin.min.js
+[2018-03-04 08:07:25,359] ERROR in app: Exception on /js/sb-admin-datatables.min.js [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: js/sb-admin-datatables.min.js
+[2018-03-04 08:38:26 +0000] [272] [CRITICAL] WORKER TIMEOUT (pid:288)
+[2018-03-04 08:38:26 +0000] [272] [CRITICAL] WORKER TIMEOUT (pid:289)
+[2018-03-04 08:38:26 +0000] [272] [CRITICAL] WORKER TIMEOUT (pid:276)
+[2018-03-04 08:38:26 +0000] [272] [CRITICAL] WORKER TIMEOUT (pid:278)
+[2018-03-04 08:38:26 +0000] [272] [CRITICAL] WORKER TIMEOUT (pid:279)
+[2018-03-04 08:38:26 +0000] [272] [CRITICAL] WORKER TIMEOUT (pid:281)
+[2018-03-04 08:38:26 +0000] [272] [CRITICAL] WORKER TIMEOUT (pid:284)
+[2018-03-04 08:38:26 +0000] [272] [CRITICAL] WORKER TIMEOUT (pid:285)
+[2018-03-04 08:38:26 +0000] [272] [CRITICAL] WORKER TIMEOUT (pid:286)
+[2018-03-04 08:44:21,259] ERROR in app: Exception on /charts.html [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 724, in regularpage
+    return render_template(pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: charts.html
+[2018-03-04 08:45:41,956] ERROR in app: Exception on /cards.html [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 724, in regularpage
+    return render_template(pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: cards.html
+[2018-03-04 08:46:07,357] ERROR in app: Exception on /cards.html [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 724, in regularpage
+    return render_template(pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: cards.html
+[2018-03-04 08:46:22,549] ERROR in app: Exception on /css/sb-admin.css [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: css/sb-admin.css
+[2018-03-04 08:46:22,555] ERROR in app: Exception on /js/sb-admin.min.js [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: js/sb-admin.min.js
+[2018-03-04 08:46:22,622] ERROR in app: Exception on /js/sb-admin.min.js [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python2.7/dist-packages/psiturk/experiment.py", line 726, in regularpage
+    return render_template(foldername+"/"+pagename)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 133, in render_template
+    return _render(ctx.app.jinja_env.get_or_select_template(template_name_or_list),
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 869, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 830, in get_template
+    return self._load_template(name, self.make_globals(globals))
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/environment.py", line 804, in _load_template
+    template = self.loader.load(self, name, globals)
+  File "/usr/local/lib/python2.7/dist-packages/jinja2/loaders.py", line 113, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 57, in get_source
+    return self._get_source_fast(environment, template)
+  File "/usr/local/lib/python2.7/dist-packages/flask/templating.py", line 85, in _get_source_fast
+    raise TemplateNotFound(template)
+TemplateNotFound: js/sb-admin.min.js
+[2018-03-04 10:06:55,784] ERROR in experiment: DB error: Unique user not found.
+[2018-03-04 10:06:55,785] ERROR in experiment: DB error: Unique user not found.
+[2018-03-04 10:07:16,349] ERROR in experiment: tried_to_quit (1011) {}
+[2018-03-04 10:07:16,349] ERROR in experiment: tried_to_quit (1011) {}
+[2018-03-04 17:24:07 +0000] [678] [CRITICAL] WORKER TIMEOUT (pid:682)
+[2018-03-04 17:24:07 +0000] [678] [CRITICAL] WORKER TIMEOUT (pid:683)
+[2018-03-04 17:24:07 +0000] [678] [CRITICAL] WORKER TIMEOUT (pid:684)
+[2018-03-04 17:24:07 +0000] [678] [CRITICAL] WORKER TIMEOUT (pid:685)
+[2018-03-04 17:24:07 +0000] [678] [CRITICAL] WORKER TIMEOUT (pid:686)
+[2018-03-04 17:24:07 +0000] [678] [CRITICAL] WORKER TIMEOUT (pid:688)
+[2018-03-04 17:24:07 +0000] [678] [CRITICAL] WORKER TIMEOUT (pid:689)
+[2018-03-04 17:24:07 +0000] [678] [CRITICAL] WORKER TIMEOUT (pid:690)
+[2018-03-04 17:24:07 +0000] [678] [CRITICAL] WORKER TIMEOUT (pid:693)
