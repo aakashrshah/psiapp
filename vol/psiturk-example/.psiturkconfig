@@ -1,8 +1,8 @@
 [AWS Access]
-aws_access_key_id = YourAccessKeyId
-aws_secret_access_key = YourSecretAccessKey
+aws_access_key_id = AKIAIBNJ3WUQTNMNQ2OA
+aws_secret_access_key = wFc1DV2/6wwzIONAUivpQPej1AWCd4JRHngybrNu
 aws_region = us-east-1
 
 [psiTurk Access]
-psiturk_access_key_id = YourAccessKeyId
-psiturk_secret_access_id = YourSecretAccessKey
+psiturk_access_key_id = H4LUizD3tfSFJ99hH6LcSn
+psiturk_secret_access_id = mZkcvb8coYekG8PCCYdHmG
